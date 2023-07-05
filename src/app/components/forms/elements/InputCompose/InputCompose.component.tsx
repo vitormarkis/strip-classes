@@ -1,4 +1,4 @@
-import { Form as S } from "@/app/components/forms/StripClassForm"
+import { Form as S } from "@/app/components/forms/StripClassesForm"
 import { InputProps } from "@/app/components/forms/elements/Input/Input.component"
 import React from "react"
 import { twMerge } from "tailwind-merge"
