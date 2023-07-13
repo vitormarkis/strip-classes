@@ -12,7 +12,7 @@ export const Label = React.forwardRef<HTMLLabelElement, LabelProps>(function Lab
   return (
     <label
       {...props}
-      className={cn("leading-none", props.className)}
+      className={cn("leading-none block", props.className)}
       ref={ref}
     >
       {props.children}

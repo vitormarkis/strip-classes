@@ -11,7 +11,7 @@ export const InputContainer = React.forwardRef<HTMLInputElement, InputContainerP
   function InputContainerComponent({ label, className, ...props }, ref) {
     return (
       <div className={cn("flex flex-col", className)}>
-        <Label className="text-heading-soft text-sm leading-none mb-1">{label}</Label>
+        <Label className="text-heading-soft text-sm leading-none mb-2">{label}</Label>
         <Input
           ref={ref}
           {...props}

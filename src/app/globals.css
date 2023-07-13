@@ -26,7 +26,7 @@
     --heading: var(--black-100);
     --heading-soft: var(--black-300);
     --heading-sub: var(--black-400);
-    --ring: var(--white-300);
+    --ring: var(--white-200);
   }
 
   .__action {

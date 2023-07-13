@@ -9,7 +9,7 @@ export function CenteredContainer({ ...props }: CenteredContainerProps) {
   return (
     <section
       {...props}
-      className={cn("max-w-7xl mx-auto", props.className)}
+      className={cn("max-w-7xl mx-auto px-8", props.className)}
     >
       {props.children}
     </section>

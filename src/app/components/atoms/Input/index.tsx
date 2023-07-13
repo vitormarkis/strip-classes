@@ -12,7 +12,8 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(function Inp
       {...props}
       className={cn(
         "text-color bg-background",
-        "min-h-interactive rounded-interactive px-4 placeholder:text-color-soft outline-none",
+        "min-h-interactive rounded-interactive px-4 placeholder:text-color-soft",
+        "outline-none focus:outline-2 focus:outline-color",
         props.className
       )}
       ref={ref}

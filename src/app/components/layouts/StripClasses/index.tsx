@@ -3,6 +3,7 @@ import { Label } from "@/app/components/atoms"
 import { CenteredContainer } from "@/app/components/atoms/CenteredContainer"
 import { Form as S } from "@/app/components/forms/elements"
 import { StripClassesElements as Custom } from "@/app/components/forms/StripClassesForm"
+import { CopyContent } from "@/app/components/molecules/CopyContent"
 import { InputContainer } from "@/app/components/molecules/InputContainer"
 import React, { useEffect, useRef, useState } from "react"
 
@@ -73,7 +74,7 @@ export default function StripClassesPage({ ...props }: StripClassesPageProps) {
       {...props}
       className={twMerge("bg-neutral-100 min-h-screen", props.className)}
     >
-      <CenteredContainer className="px-4 bg-white min-h-screen">
+      <CenteredContainer className="bg-white min-h-screen">
         <S.Form className="py-4 gap-4">
           <InputContainer
             label="Elemento base:"
@@ -87,26 +88,21 @@ export default function StripClassesPage({ ...props }: StripClassesPageProps) {
             value={secondaryClassesString}
             onChange={e => setSecondaryClassesString(e.target.value)}
           />
-          <div>
-            <Label className="text-heading-soft text-sm">Em comum:</Label>
-            <div className="min-h-[6rem] h-fit font-jetbrains text-neutral-300 bg-neutral-800 border border-neutral-700 shadow-md shadow-neutral-800/10 selection:bg-neutral-700 p-4 rounded-lg">
-              <p className="font-jetbrains text-neutral-100">{commomClassesString}</p>
-            </div>
-          </div>
-
-          <div>
-            <h4>Classes únicas da string base:</h4>
-            <div className="min-h-[6rem] h-fit font-jetbrains text-neutral-300 bg-neutral-800 border border-neutral-700 shadow-md shadow-neutral-800/10 selection:bg-neutral-700 p-4 rounded-lg">
-              <p className="font-jetbrains text-neutral-100">{baseUniqueClassesString}</p>
-            </div>
-          </div>
-
-          <div>
-            <h4>Classes únicas da string secundária:</h4>
-            <div className="min-h-[6rem] h-fit font-jetbrains text-neutral-300 bg-neutral-800 border border-neutral-700 shadow-md shadow-neutral-800/10 selection:bg-neutral-700 p-4 rounded-lg">
-              <p className="font-jetbrains text-neutral-100">{secondaryUniqueClassesString}</p>
-            </div>
-          </div>
+          <CopyContent
+            classesStrings={commomClassesString}
+            label="Em comum:"
+            className="__two"
+          />
+          <CopyContent
+            classesStrings={baseClassesString}
+            label="Classes únicas da string base:"
+            className="__two"
+          />
+          <CopyContent
+            classesStrings={secondaryUniqueClassesString}
+            label="Classes únicas da string secundária:"
+            className="__two"
+          />
         </S.Form>
       </CenteredContainer>
     </main>
