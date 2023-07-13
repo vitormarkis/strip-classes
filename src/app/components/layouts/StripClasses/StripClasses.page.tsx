@@ -1,22 +1,15 @@
 "use client"
-import { CenteredContainer } from "@/app/components/CenteredContainer"
-import { Form as S, StripClassesElements as Custom } from "@/app/components/forms/StripClassesForm"
-import IconClipboard from "@/app/components/icons/IconClipboard"
-import { IFormValues } from "@/app/forms/stripClasses"
-import { getElementValue } from "@/app/utils"
+import { Label } from "@/app/components/atoms"
+import { CenteredContainer } from "@/app/components/atoms/CenteredContainer"
+import { Form as S } from "@/app/components/forms/elements"
+import { StripClassesElements as Custom } from "@/app/components/forms/StripClassesForm"
+import { InputContainer } from "@/app/components/molecules/InputContainer"
 import React, { useEffect, useRef, useState } from "react"
-import { useFormContext } from "react-hook-form"
 
 import { twMerge } from "tailwind-merge"
 
 interface StripClassesPageProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode
-}
-
-interface StripClasses {
-  commomClasses: (arg: string) => void
-  baseUniqueClasses: (arg: string) => void
-  secondaryUniqueClasses: (arg: string) => void
 }
 
 export default function StripClassesPage({ ...props }: StripClassesPageProps) {
@@ -82,37 +75,36 @@ export default function StripClassesPage({ ...props }: StripClassesPageProps) {
     >
       <CenteredContainer className="px-4 bg-white min-h-screen">
         <S.Form className="p-4 gap-4">
-          <S.Input
-            className="font-jetbrains placeholder:text-slate-500 text-slate-700 bg-slate-100 border border-slate-300 shadow-md shadow-slate-800/10 selection:bg-slate-300"
+          <InputContainer
+            label="Elemento base:"
             placeholder="Classes do elemento base"
             value={baseClassesString}
             onChange={e => setBaseClassesString(e.target.value)}
           />
-          <S.Input
-            className="font-jetbrains placeholder:text-slate-500 text-slate-700 bg-slate-100 border border-slate-300 shadow-md shadow-slate-800/10 selection:bg-slate-300"
+          <InputContainer
+            label="Elemento a ser comparado:"
             placeholder="Classes do próximo elemento"
             value={secondaryClassesString}
             onChange={e => setSecondaryClassesString(e.target.value)}
           />
-
           <div>
-            <h4>Comum:</h4>
-            <div className="min-h-[6rem] h-fit font-jetbrains text-slate-300 bg-slate-800 border border-slate-700 shadow-md shadow-slate-800/10 selection:bg-slate-700 p-4 rounded-lg">
-              <p className="font-jetbrains text-slate-100">{commomClassesString}</p>
+            <Label className="text-heading-soft text-sm">Em comum:</Label>
+            <div className="min-h-[6rem] h-fit font-jetbrains text-neutral-300 bg-neutral-800 border border-neutral-700 shadow-md shadow-neutral-800/10 selection:bg-neutral-700 p-4 rounded-lg">
+              <p className="font-jetbrains text-neutral-100">{commomClassesString}</p>
             </div>
           </div>
 
           <div>
             <h4>Classes únicas da string base:</h4>
-            <div className="min-h-[6rem] h-fit font-jetbrains text-slate-300 bg-slate-800 border border-slate-700 shadow-md shadow-slate-800/10 selection:bg-slate-700 p-4 rounded-lg">
-              <p className="font-jetbrains text-slate-100">{baseUniqueClassesString}</p>
+            <div className="min-h-[6rem] h-fit font-jetbrains text-neutral-300 bg-neutral-800 border border-neutral-700 shadow-md shadow-neutral-800/10 selection:bg-neutral-700 p-4 rounded-lg">
+              <p className="font-jetbrains text-neutral-100">{baseUniqueClassesString}</p>
             </div>
           </div>
 
           <div>
             <h4>Classes únicas da string secundária:</h4>
-            <div className="min-h-[6rem] h-fit font-jetbrains text-slate-300 bg-slate-800 border border-slate-700 shadow-md shadow-slate-800/10 selection:bg-slate-700 p-4 rounded-lg">
-              <p className="font-jetbrains text-slate-100">{secondaryUniqueClassesString}</p>
+            <div className="min-h-[6rem] h-fit font-jetbrains text-neutral-300 bg-neutral-800 border border-neutral-700 shadow-md shadow-neutral-800/10 selection:bg-neutral-700 p-4 rounded-lg">
+              <p className="font-jetbrains text-neutral-100">{secondaryUniqueClassesString}</p>
             </div>
           </div>
         </S.Form>

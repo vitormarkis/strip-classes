@@ -2,6 +2,93 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+@layer base {
+  :root {
+    --background: var(--white);
+    --background-shadow: var(--white-200);
+    --color: var(--black-600);
+    --color-soft: var(--black-900);
+    --color-strong: var(--black-400);
+    --heading: var(--black-100);
+    --heading-soft: var(--black-400);
+    --heading-sub: var(--black-500);
+    --ring: var(--white-400);
+  }
+
+  .__two {
+    --background: var(--white-100);
+    --background-shadow: var(--white-300);
+    --color: var(--black-500);
+    --color-soft: var(--white-600);
+    --color-strong: var(--black-300);
+    --heading: var(--black-100);
+    --heading-soft: var(--black-300);
+    --heading-sub: var(--black-400);
+    --ring: var(--white-300);
+  }
+
+  .dark {
+    --background: var(--black);
+    --background-shadow: var(--black-200);
+    --color: var(--white-600);
+    --color-soft: var(--white-900);
+    --color-strong: var(--white-400);
+    --heading: var(--white-100);
+    --heading-soft: var(--white-400);
+    --heading-sub: var(--white-500);
+    --ring: var(--black-400);
+
+    .__two {
+      --background: var(--black-200);
+      --background-shadow: var(--black-300);
+      --color: var(--white-500);
+      --color-soft: var(--black-700);
+      --color-strong: var(--white-300);
+      --heading: var(--white-100);
+      --heading-soft: var(--white-300);
+      --heading-sub: var(--white-400);
+      --ring: var(--black-300);
+    }
+  }
+}
+
+@layer base {
+  :root {
+    --white: 255 255 255;
+    --white-100: 247 247 247;
+    --white-200: 234 234 234;
+    --white-300: 221 221 221;
+    --white-400: 207 207 207;
+    --white-500: 194 194 194;
+    --white-600: 181 181 181;
+    --white-700: 168 168 168;
+    --white-800: 154 154 154;
+    --white-900: 141 141 141;
+
+    --black: 0 0 0;
+    --black-100: 14 14 14;
+    --black-200: 28 28 28;
+    --black-300: 43 43 43;
+    --black-400: 57 57 57;
+    --black-500: 71 71 71;
+    --black-600: 85 85 85;
+    --black-700: 100 100 100;
+    --black-800: 114 114 114;
+    --black-900: 128 128 128;
+  }
+
+  body {
+    background-color: var(--background);
+  }
+
+  * {
+    @apply border-ring
+  }
+}
+
+
 .center-element {
   @apply absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
 }

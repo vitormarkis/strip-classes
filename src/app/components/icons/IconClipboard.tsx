@@ -1,4 +1,4 @@
-import React, { CSSProperties, SVGAttributes } from "react"
+import React, { CSSProperties } from "react"
 import { twMerge } from "tailwind-merge"
 
 interface IconClipboardProps extends React.SVGAttributes<SVGElement> {
