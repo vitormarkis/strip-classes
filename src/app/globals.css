@@ -15,6 +15,7 @@
     --heading-soft: var(--black-400);
     --heading-sub: var(--black-500);
     --ring: var(--white-400);
+    --symbol: var(--black-600);
   }
 
   .__two {
@@ -27,6 +28,7 @@
     --heading-soft: var(--black-300);
     --heading-sub: var(--black-400);
     --ring: var(--white-200);
+    --symbol: var(--black-500);
   }
 
   .__action {
@@ -39,6 +41,7 @@
     /* --heading-soft: var(--black-300); */
     /* --heading-sub: var(--black-400); */
     --ring: var(--green-yellow-600);
+    --symbol: var(--white);
   }
 
   .__neutral {
@@ -46,6 +49,7 @@
     --background-shadow: var(--black-100);
     --color: var(--white);
     --ring: var(--black-100);
+    --symbol: var(--white);
   }
 
   .dark {
@@ -58,6 +62,7 @@
     --heading-soft: var(--white-400);
     --heading-sub: var(--white-500);
     --ring: var(--black-400);
+    --symbol: var(--white-600);
 
     .__two {
       --background: var(--black-200);
@@ -69,6 +74,7 @@
       --heading-soft: var(--white-300);
       --heading-sub: var(--white-400);
       --ring: var(--black-300);
+      --symbol: var(--white-500);
     }
 
     .__neutral {
@@ -76,6 +82,7 @@
       --background-shadow: var(--white-100);
       --color: var(--black);
       --ring: var(--white-100);
+      --symbol: var(--black);
     }
   }
 }

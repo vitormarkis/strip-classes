@@ -63,11 +63,6 @@ export default function StripClassesPage({ ...props }: StripClassesPageProps) {
     setSecondaryUniqueClassesString(res.secondaryUniqueClasses)
   }, [baseClassesString, secondaryClassesString])
 
-  // const handleCopy = (event: React.MouseEvent<HTMLButtonElement>) => {
-  //   const hasAnyValidOutput = commomClassesString.length
-  //   console.log("copy", { hasAnyValidOutput, commomClasses: commomClassesString })
-  //   if (hasAnyValidOutput) navigator.clipboard.writeText(commomClassesString)
-  // }
 
   return (
     <main

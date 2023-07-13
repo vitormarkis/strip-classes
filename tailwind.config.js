@@ -39,6 +39,9 @@ module.exports = {
       ring: {
         DEFAULT: "rgba(var(--ring) / <alpha-value>)",
       },
+      symbol: {
+        DEFAULT: "rgba(var(--symbol) / <alpha-value>)",
+      },
     },
   },
   plugins: [],
