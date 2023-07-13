@@ -15,7 +15,7 @@ export const InputContainer = React.forwardRef<HTMLInputElement, InputContainerP
         <Input
           ref={ref}
           {...props}
-          className="__two border shadow-md shadow-background-shadow/50 dark:shadow-none"
+          className="__two shadow-md shadow-background-shadow/40 dark:shadow-none"
         />
       </div>
     )

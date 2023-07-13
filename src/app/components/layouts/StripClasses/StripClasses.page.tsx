@@ -74,7 +74,7 @@ export default function StripClassesPage({ ...props }: StripClassesPageProps) {
       className={twMerge("bg-neutral-100 min-h-screen", props.className)}
     >
       <CenteredContainer className="px-4 bg-white min-h-screen">
-        <S.Form className="p-4 gap-4">
+        <S.Form className="py-4 gap-4">
           <InputContainer
             label="Elemento base:"
             placeholder="Classes do elemento base"

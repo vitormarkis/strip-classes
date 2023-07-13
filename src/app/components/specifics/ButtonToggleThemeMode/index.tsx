@@ -2,6 +2,7 @@
 import React from "react"
 import { twMerge } from "tailwind-merge"
 import { useTheme } from "next-themes"
+import { Button } from "@/app/components/atoms/Button"
 
 interface ButtonToggleThemeModeProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode
@@ -18,16 +19,12 @@ export function ButtonToggleThemeMode({ text, ...props }: ButtonToggleThemeModeP
   }
 
   return (
-    <button
+    <Button
       {...props}
-      className={twMerge(
-        "h-11 px-4 rounded-lg shadow bg-green-100 text-green-500 border border-green-500",
-        props.className
-      )}
+      className={twMerge("__neutral bg-background text-color rounded-interactive", props.className)}
       onClick={handleToggleThemeMode}
     >
-      {props.children}
       {text ?? "Toggle Theme"}
-    </button>
+    </Button>
   )
 }

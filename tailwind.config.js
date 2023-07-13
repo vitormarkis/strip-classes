@@ -12,10 +12,13 @@ module.exports = {
         jetbrains: ["var(--jetbrains)", "monospace"],
       },
       height: {
-        interactive: "3rem",
+        interactive: "2.75rem",
       },
       minHeight: {
-        interactive: "3rem",
+        interactive: "2.75rem",
+      },
+      borderRadius: {
+        interactive: "0.375rem",
       },
     },
     colors: {

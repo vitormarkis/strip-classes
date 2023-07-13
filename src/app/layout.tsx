@@ -2,7 +2,7 @@ import "./globals.css"
 import { Inter, JetBrains_Mono } from "next/font/google"
 import clsx from "clsx"
 import { CenteredContainer } from "@/app/components/atoms/CenteredContainer"
-import { ButtonToggleThemeMode } from "@/app/components/ButtonToggleThemeMode"
+import { ButtonToggleThemeMode } from "@/app/components/specifics/ButtonToggleThemeMode"
 import LayoutProvider from "@/app/providers/layout/provider"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -18,7 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={clsx(inter.className, jetbrains.variable)}>
         <LayoutProvider>
-          <header className="border-b border-zinc-500">
+          <header className="border-b">
             <CenteredContainer className="p-4 flex items-center">
               <ButtonToggleThemeMode />
             </CenteredContainer>
