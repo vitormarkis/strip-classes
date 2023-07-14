@@ -103,7 +103,7 @@ export default function StripClassesPage({ ...props }: StripClassesPageProps) {
             </div>
             <div className="space-y-5">
               <CopyContent
-                classesStrings={baseClassesString}
+                classesStrings={baseUniqueClassesString}
                 label="Classes únicas da string base:"
                 className="__two"
               />
