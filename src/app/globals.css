@@ -19,7 +19,7 @@
   }
 
   .__two {
-    --background: var(--white-200);
+    --background: var(--white-100);
     --background-shadow: var(--white-300);
     --color: var(--black-500);
     --color-soft: var(--white-900);
@@ -27,7 +27,7 @@
     --heading: var(--black-100);
     --heading-sub: var(--black-400);
     --heading-soft: var(--black-500);
-    --ring: var(--white-300);
+    --ring: var(--white-200);
     --symbol: var(--black-800);
   }
 
