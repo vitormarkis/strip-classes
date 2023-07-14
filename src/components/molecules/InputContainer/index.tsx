@@ -1,5 +1,5 @@
-import { Input, Label } from "@/app/components/atoms"
-import type { InputProps } from "@/app/components/atoms"
+import { Input, Label } from "@/components/atoms"
+import type { InputProps } from "@/components/atoms"
 import { cn } from "@/lib/utils"
 import React from "react"
 

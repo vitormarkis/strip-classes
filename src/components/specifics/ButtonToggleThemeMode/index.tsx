@@ -2,7 +2,7 @@
 import React from "react"
 import { twMerge } from "tailwind-merge"
 import { useTheme } from "next-themes"
-import { Button } from "@/app/components/atoms/Button"
+import { Button } from "@/components/atoms/Button"
 
 interface ButtonToggleThemeModeProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode

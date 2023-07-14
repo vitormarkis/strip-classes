@@ -1,10 +1,10 @@
 "use client"
-import { Label } from "@/app/components/atoms"
-import { CenteredContainer } from "@/app/components/atoms/CenteredContainer"
-import { Form as S } from "@/app/components/forms/elements"
-import { StripClassesElements as Custom } from "@/app/components/forms/StripClassesForm"
-import { CopyContent } from "@/app/components/molecules/CopyContent"
-import { InputContainer } from "@/app/components/molecules/InputContainer"
+import { Label } from "@/components/atoms"
+import { CenteredContainer } from "@/components/atoms/CenteredContainer"
+import { Form as S } from "@/components/forms/elements"
+import { StripClassesElements as Custom } from "@/components/forms/StripClassesForm"
+import { CopyContent } from "@/components/molecules/CopyContent"
+import { InputContainer } from "@/components/molecules/InputContainer"
 import React, { useEffect, useRef, useState } from "react"
 
 import { twMerge } from "tailwind-merge"
@@ -62,7 +62,6 @@ export default function StripClassesPage({ ...props }: StripClassesPageProps) {
     setBaseUniqueClassesString(res.baseUniqueClasses)
     setSecondaryUniqueClassesString(res.secondaryUniqueClasses)
   }, [baseClassesString, secondaryClassesString])
-
 
   return (
     <main

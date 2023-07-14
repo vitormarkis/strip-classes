@@ -1,5 +1,5 @@
-import { Form as S } from "@/app/components/forms/elements"
-import { InputProps } from "@/app/components/forms/elements/Input/Input.component"
+import { Form as S } from "@/components/forms/elements"
+import { InputProps } from "@/components/forms/elements/Input/Input.component"
 import React, { CSSProperties } from "react"
 import { twMerge } from "tailwind-merge"
 

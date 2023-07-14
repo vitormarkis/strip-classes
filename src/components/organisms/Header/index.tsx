@@ -1,5 +1,5 @@
-import { CenteredContainer } from "@/app/components/atoms"
-import { ButtonToggleThemeMode } from "@/app/components/specifics/ButtonToggleThemeMode"
+import { CenteredContainer } from "@/components/atoms"
+import { ButtonToggleThemeMode } from "@/components/specifics/ButtonToggleThemeMode"
 import { cn } from "@/lib/utils"
 import React from "react"
 

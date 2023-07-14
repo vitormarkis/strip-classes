@@ -2,7 +2,7 @@ import "./globals.css"
 import { Inter, JetBrains_Mono } from "next/font/google"
 import clsx from "clsx"
 import LayoutProvider from "@/app/providers/layout/provider"
-import { Header } from "@/app/components/organisms/Header"
+import { Header } from "@/components/organisms/Header"
 
 const inter = Inter({ subsets: ["latin"] })
 const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--jetbrains" })

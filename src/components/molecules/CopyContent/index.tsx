@@ -1,11 +1,11 @@
 "use client"
 
-import { Label } from "@/app/components/atoms"
+import { Label } from "@/components/atoms"
 import { cn } from "@/lib/utils"
 import React, { useState } from "react"
 import st from "./style.module.css"
-import IconClipboard from "@/app/components/icons/IconClipboard"
-import { ToastCopySuccess } from "@/app/components/molecules/_toast/CopySuccess"
+import IconClipboard from "@/components/icons/IconClipboard"
+import { ToastCopySuccess } from "@/components/molecules/_toast/CopySuccess"
 import { AnimatePresence, motion } from "framer-motion"
 
 interface CopyContentProps extends React.HTMLAttributes<HTMLDivElement> {
