@@ -69,10 +69,12 @@ export default function StripClassesPage({ ...props }: StripClassesPageProps) {
       className={twMerge("bg-neutral-100", props.className)}
     >
       <CenteredContainer className="h-[calc(100vh_-_78px)]">
-        <div className="flex border-b py-5">
+        <div className="flex flex-col lg:flex-row border-b py-5">
           <div className="flex-1 space-y-8">
             <div>
-              <h2 className="text-center text-heading text-4xl font-extralight">Input</h2>
+              <h2 className="text-center text-heading text-4xl font-extralight">
+                Classes Conflitantes
+              </h2>
               <span className="block text-center text-heading-sub text-sm">
                 Insira as classes conflitantes nos inputs abaixo:
               </span>
@@ -93,7 +95,8 @@ export default function StripClassesPage({ ...props }: StripClassesPageProps) {
               />
             </div>
           </div>
-          <div className="border-r pr-5 mr-5" />
+          <div className="block lg:hidden border-b pb-5 mb-5" />
+          <div className="hidden lg:block border-r pr-5 mr-5" />
           <div className="flex-1 space-y-8">
             <div>
               <h2 className="text-center text-heading text-4xl font-extralight">Classes Únicas</h2>
