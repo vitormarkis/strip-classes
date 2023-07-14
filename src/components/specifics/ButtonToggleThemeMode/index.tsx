@@ -15,7 +15,6 @@ export function ButtonToggleThemeMode({ text, ...props }: ButtonToggleThemeModeP
 
   const handleToggleThemeMode = () => {
     theme == "dark" ? setTheme("light") : setTheme("dark")
-    console.log({ currentTheme })
   }
 
   return (

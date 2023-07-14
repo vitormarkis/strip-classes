@@ -63,27 +63,27 @@
     --heading-soft: var(--white-400);
     --ring: var(--black-400);
     --symbol: var(--white-600);
+  }
 
-    .__two {
-      --background: var(--black-200);
-      --background-shadow: var(--black-300);
-      --color: var(--white-500);
-      --color-soft: var(--black-700);
-      --color-strong: var(--white-300);
-      --heading: var(--white-100);
-      --heading-soft: var(--white-300);
-      --heading-sub: var(--white-400);
-      --ring: var(--black-300);
-      --symbol: var(--white-800);
-    }
+  .dark .__two {
+    --background: var(--black-200);
+    --background-shadow: var(--black-300);
+    --color: var(--white-500);
+    --color-soft: var(--black-700);
+    --color-strong: var(--white-300);
+    --heading: var(--white-100);
+    --heading-soft: var(--white-300);
+    --heading-sub: var(--white-400);
+    --ring: var(--black-300);
+    --symbol: var(--white-800);
+  }
 
-    .__neutral {
-      --background: var(--white);
-      --background-shadow: var(--white-100);
-      --color: var(--black);
-      --ring: var(--white-100);
-      --symbol: var(--black);
-    }
+  .dark .__neutral {
+    --background: var(--white);
+    --background-shadow: var(--white-100);
+    --color: var(--black);
+    --ring: var(--white-100);
+    --symbol: var(--black);
   }
 }
 
