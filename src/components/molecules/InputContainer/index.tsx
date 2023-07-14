@@ -15,7 +15,7 @@ export const InputContainer = React.forwardRef<HTMLInputElement, InputContainerP
         <Input
           ref={ref}
           {...props}
-          className="__two"
+          className="__two border"
         />
       </div>
     )

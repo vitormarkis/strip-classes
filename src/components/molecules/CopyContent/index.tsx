@@ -41,7 +41,7 @@ export const CopyContent = React.forwardRef<HTMLDivElement, CopyContentProps>(
         <div
           data-valid={hasValidClassesString}
           className={cn(
-            "min-h-interactive h-fit font-jetbrains bg-background selection:bg-background-shadow px-4 py-2.5 rounded-interactive",
+            "border min-h-interactive h-fit font-jetbrains bg-background selection:bg-background-shadow px-4 py-2.5 rounded-interactive",
             "hover:cursor-pointer",
             st.copy_content
           )}

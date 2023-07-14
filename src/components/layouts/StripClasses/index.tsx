@@ -66,38 +66,62 @@ export default function StripClassesPage({ ...props }: StripClassesPageProps) {
   return (
     <main
       {...props}
-      className={twMerge("bg-neutral-100 min-h-screen", props.className)}
+      className={twMerge("bg-neutral-100", props.className)}
     >
-      <CenteredContainer className="bg-white min-h-screen">
-        <S.Form className="py-4 gap-4">
-          <InputContainer
-            label="Elemento base:"
-            placeholder="Classes do elemento base"
-            value={baseClassesString}
-            onChange={e => setBaseClassesString(e.target.value)}
-          />
-          <InputContainer
-            label="Elemento a ser comparado:"
-            placeholder="Classes do próximo elemento"
-            value={secondaryClassesString}
-            onChange={e => setSecondaryClassesString(e.target.value)}
-          />
+      <CenteredContainer className="h-[calc(100vh_-_78px)]">
+        <div className="flex border-b py-5">
+          <div className="flex-1 space-y-8">
+            <div>
+              <h2 className="text-center text-heading text-4xl font-extralight">Input</h2>
+              <span className="block text-center text-heading-sub text-sm">
+                Insira as classes conflitantes nos inputs abaixo:
+              </span>
+            </div>
+
+            <div className="space-y-5">
+              <InputContainer
+                label="Elemento base:"
+                placeholder="Classes do elemento base"
+                value={baseClassesString}
+                onChange={e => setBaseClassesString(e.target.value)}
+              />
+              <InputContainer
+                label="Elemento a ser comparado:"
+                placeholder="Classes do próximo elemento"
+                value={secondaryClassesString}
+                onChange={e => setSecondaryClassesString(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="border-r pr-5 mr-5" />
+          <div className="flex-1 space-y-8">
+            <div>
+              <h2 className="text-center text-heading text-4xl font-extralight">Classes Únicas</h2>
+              <span className="block text-center text-heading-sub text-sm">
+                As classes únicas de cada input:
+              </span>
+            </div>
+            <div className="space-y-5">
+              <CopyContent
+                classesStrings={baseClassesString}
+                label="Classes únicas da string base:"
+                className="__two"
+              />
+              <CopyContent
+                classesStrings={secondaryUniqueClassesString}
+                label="Classes únicas da string secundária:"
+                className="__two"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="py-5">
           <CopyContent
             classesStrings={commomClassesString}
             label="Em comum:"
             className="__two"
           />
-          <CopyContent
-            classesStrings={baseClassesString}
-            label="Classes únicas da string base:"
-            className="__two"
-          />
-          <CopyContent
-            classesStrings={secondaryUniqueClassesString}
-            label="Classes únicas da string secundária:"
-            className="__two"
-          />
-        </S.Form>
+        </div>
       </CenteredContainer>
     </main>
   )
