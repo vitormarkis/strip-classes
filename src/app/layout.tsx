@@ -19,6 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <LayoutProvider>
           <Header />
           {children}
+          <div id="toasts" />
         </LayoutProvider>
       </body>
     </html>

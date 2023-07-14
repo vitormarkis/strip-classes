@@ -1,0 +1,6 @@
+.success_copy {
+  --padding: 0.5rem;
+  position: absolute;
+  right: var(--padding);
+  top: var(--padding);
+}

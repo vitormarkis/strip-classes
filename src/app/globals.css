@@ -19,28 +19,28 @@
   }
 
   .__two {
-    --background: var(--white-100);
+    --background: var(--white-200);
     --background-shadow: var(--white-300);
     --color: var(--black-500);
     --color-soft: var(--white-600);
     --color-strong: var(--black-300);
     --heading: var(--black-100);
-    --heading-soft: var(--black-300);
     --heading-sub: var(--black-400);
+    --heading-soft: var(--black-300);
     --ring: var(--white-200);
-    --symbol: var(--black-500);
+    --symbol: var(--black-800);
   }
 
   .__action {
-    --background: var(--green-yellow-500);
-    --background-shadow: var(--green-yellow-600);
+    --background: var(--electric-violet-500);
+    --background-shadow: var(--electric-violet-600);
     --color: var(--white);
-    /* --color-soft: var(--); */
-    /* --color-strong: var(--); */
-    /* --heading: var(--black-100); */
-    /* --heading-soft: var(--black-300); */
-    /* --heading-sub: var(--black-400); */
-    --ring: var(--green-yellow-600);
+    --color-soft: inherit;
+    --color-strong: inherit;
+    --heading: inherit;
+    --heading-soft: inherit;
+    --heading-sub: inherit;
+    --ring: var(--electric-violet-600);
     --symbol: var(--white);
   }
 
@@ -74,7 +74,7 @@
       --heading-soft: var(--white-300);
       --heading-sub: var(--white-400);
       --ring: var(--black-300);
-      --symbol: var(--white-500);
+      --symbol: var(--white-800);
     }
 
     .__neutral {
@@ -111,17 +111,17 @@
     --black-800: 114 114 114;
     --black-900: 128 128 128;
 
-    --green-yellow-50: 249 255 228;
-    --green-yellow-100: 240 255 197;
-    --green-yellow-200: 223 255 147;
-    --green-yellow-300: 199 255 84;
-    --green-yellow-400: 173 250 29;
-    --green-yellow-500: 143 225 1;
-    --green-yellow-600: 109 180 0;
-    --green-yellow-700: 83 136 3;
-    --green-yellow-800: 67 107 9;
-    --green-yellow-900: 57 90 13;
-    --green-yellow-950: 28 51 0;
+    --electric-violet-50: 242 243 255;
+    --electric-violet-100: 231 231 255;
+    --electric-violet-200: 210 212 255;
+    --electric-violet-300: 175 174 255;
+    --electric-violet-400: 134 128 255;
+    --electric-violet-500: 95 77 255;
+    --electric-violet-600: 73 40 255;
+    --electric-violet-700: 59 22 235;
+    --electric-violet-800: 49 18 197;
+    --electric-violet-900: 42 17 161;
+    --electric-violet-950: 21 7 110;
   }
 
   body {
