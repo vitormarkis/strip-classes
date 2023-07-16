@@ -1,11 +1,11 @@
 "use client"
-import { Label } from "@/components/atoms"
 import { CenteredContainer } from "@/components/atoms/CenteredContainer"
-import { Form as S } from "@/components/forms/elements"
-import { StripClassesElements as Custom } from "@/components/forms/StripClassesForm"
 import { CopyContent } from "@/components/molecules/CopyContent"
 import { InputContainer } from "@/components/molecules/InputContainer"
-import React, { useEffect, useRef, useState } from "react"
+import { appendSpecialClassesToObject } from "@/utils/units/appendSpecialClassesToObject"
+import { separateSpecialClasses } from "@/utils/units/separateSpecialClasses"
+import { turnAllValuesToString } from "@/utils/units/turnAllValuesToString"
+import React, { useEffect, useState } from "react"
 
 import { twMerge } from "tailwind-merge"
 
@@ -62,6 +62,14 @@ export default function StripClassesPage({ ...props }: StripClassesPageProps) {
     setBaseUniqueClassesString(res.baseUniqueClasses)
     setSecondaryUniqueClassesString(res.secondaryUniqueClasses)
   }, [baseClassesString, secondaryClassesString])
+
+  useEffect(() => {
+    const res1 = separateSpecialClasses(baseClassesString)
+    const res2 = appendSpecialClassesToObject(res1)
+    const res3 = turnAllValuesToString(res2.specialClasses)
+
+    console.log({ ...res2, specialClasses: res3 })
+  }, [baseClassesString])
 
   return (
     <main
