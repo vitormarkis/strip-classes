@@ -85,6 +85,20 @@
     --ring: var(--white-100);
     --symbol: var(--black);
   }
+
+  .Special_slate {
+    --special-back-weak: var(--black-800);
+    --special-back-soft: var(--black-500);
+    --special-back: var(--black-300);
+    --special-back-strong: var(--black-100);
+    --special-back-bold: var(--black);
+
+    --special-fore-weak: var(--white-800);
+    --special-fore-soft: var(--white-500);
+    --special-fore: var(--white-200);
+    --special-fore-strong: var(--white-100);
+    --special-fore-bold: var(--white);
+  }
 }
 
 @layer base {

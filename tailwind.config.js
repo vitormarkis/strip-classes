@@ -42,6 +42,22 @@ module.exports = {
       symbol: {
         DEFAULT: "rgba(var(--symbol) / <alpha-value>)",
       },
+      special: {
+        back: {
+          DEFAULT: "rgba(var(--special-back) / <alpha-value>)",
+          weak: "rgba(var(--special-back-weak) / <alpha-value>)",
+          soft: "rgba(var(--special-back-soft) / <alpha-value>)",
+          strong: "rgba(var(--special-back-strong) / <alpha-value>)",
+          bold: "rgba(var(--special-back-bold) / <alpha-value>)",
+        },
+        fore: {
+          DEFAULT: "rgba(var(--special-fore) / <alpha-value>)",
+          weak: "rgba(var(--special-fore-weak) / <alpha-value>)",
+          soft: "rgba(var(--special-fore-soft) / <alpha-value>)",
+          strong: "rgba(var(--special-fore-strong) / <alpha-value>)",
+          bold: "rgba(var(--special-fore-bold) / <alpha-value>)",
+        },
+      },
     },
   },
   plugins: [],

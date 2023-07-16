@@ -1,16 +1,11 @@
 import React, { CSSProperties } from "react"
 import { twMerge } from "tailwind-merge"
 
-interface IconClipboardProps extends React.SVGAttributes<SVGElement> {
+interface IconAtProps extends React.SVGAttributes<SVGElement> {
   size?: number
 }
 
-export default function IconClipboard({
-  size = 18,
-  style,
-  className,
-  ...props
-}: IconClipboardProps) {
+export default function IconAt({ size = 18, style, className, ...props }: IconAtProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -29,19 +24,18 @@ export default function IconClipboard({
         height={256}
         fill="none"
       />
-      <polyline
-        points="168 168 216 168 216 40 88 40 88 88"
+      <circle
+        cx={128}
+        cy={128}
+        r={40}
         fill="none"
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={24}
       />
-      <rect
-        x={40}
-        y={88}
-        width={128}
-        height={128}
+      <path
+        d="M184,208c-15.21,10.11-36.37,16-56,16a96,96,0,1,1,96-96c0,22.09-8,40-28,40s-28-17.91-28-40V88"
         fill="none"
         stroke="currentColor"
         strokeLinecap="round"
