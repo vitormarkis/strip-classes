@@ -8,20 +8,27 @@ import IconClipboard from "@/components/icons/IconClipboard"
 import { ToastCopySuccess } from "@/components/molecules/_toast/CopySuccess"
 import { AnimatePresence, motion } from "framer-motion"
 import IconAt from "@/components/icons/IconAt"
-import { twMerge } from "tailwind-merge"
 import { ButtonIcon } from "@/components/atoms/ButtonIcon"
+import { ModalCopyContentDetails } from "@/components/modal/ModalCopyContentDetails"
 
-interface CopyContentProps extends React.HTMLAttributes<HTMLDivElement> {
-  hasDetails?: boolean
+export interface CopyContentCustomProps {
   classesStrings: string
   label: string
+  actions?: {
+    hasDetails?: boolean
+  }
 }
 
+export interface CopyContentProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    CopyContentCustomProps {}
+
 export const CopyContent = React.forwardRef<HTMLDivElement, CopyContentProps>(
-  function CopyContentComponent({ hasDetails = true, classesStrings, label, ...props }, ref) {
+  function CopyContentComponent({ actions = {}, classesStrings, label, ...props }, ref) {
     const [showSuccessCopy, setShowSuccessCopy] = useState(false)
 
     const hasValidClassesString = !!classesStrings.length
+    const hasValidActions = Object.values(actions).some(Boolean)
 
     const handleCopyContent = () => {
       if (!hasValidClassesString) return
@@ -70,14 +77,24 @@ export const CopyContent = React.forwardRef<HTMLDivElement, CopyContentProps>(
             </div>
             <p className="font-jetbrains text-color text-sm">{classesStrings}</p>
           </div>
-          <div className="grid place-items-center border h-interactive bg-background rounded-interactive px-2">
-            <ButtonIcon>
-              <IconAt
-                size={16}
-                className="text-symbol"
-              />
-            </ButtonIcon>
-          </div>
+          {hasValidActions && (
+            <div className="grid place-items-center border h-interactive bg-background rounded-interactive px-2">
+              {actions.hasDetails && (
+                <ModalCopyContentDetails
+                  title={label}
+                  classesStrings={classesStrings}
+                  label={label}
+                >
+                  <ButtonIcon>
+                    <IconAt
+                      size={16}
+                      className="text-symbol"
+                    />
+                  </ButtonIcon>
+                </ModalCopyContentDetails>
+              )}
+            </div>
+          )}
         </div>
       </div>
     )

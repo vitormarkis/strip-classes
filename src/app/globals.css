@@ -139,7 +139,7 @@
   }
 
   body {
-    background-color: var(--background);
+    background-color: rgb(var(--background));
   }
 
   * {
