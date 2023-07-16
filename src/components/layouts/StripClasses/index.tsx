@@ -1,6 +1,8 @@
 "use client"
+import { Label } from "@/components/atoms"
 import { CenteredContainer } from "@/components/atoms/CenteredContainer"
 import { CopyContent } from "@/components/molecules/CopyContent"
+import { CopyContainer } from "@/components/molecules/CopyContent/CopyContainer"
 import { InputContainer } from "@/components/molecules/InputContainer"
 import { appendSpecialClassesToObject } from "@/utils/units/appendSpecialClassesToObject"
 import { separateSpecialClasses } from "@/utils/units/separateSpecialClasses"
@@ -113,28 +115,38 @@ export default function StripClassesPage({ ...props }: StripClassesPageProps) {
               </span>
             </div>
             <div className="space-y-5">
-              <CopyContent
-                classesStrings={baseUniqueClassesString}
-                label="Classes únicas da string base:"
-                className="__two"
-                actions={{ hasDetails: true }}
-              />
-              <CopyContent
-                classesStrings={secondaryUniqueClassesString}
-                label="Classes únicas da string secundária:"
-                className="__two"
-                actions={{ hasDetails: true }}
-              />
+              <CopyContent className="__two">
+                <Label className="text-heading-soft text-sm leading-none mb-2">
+                  Classes únicas da string base:
+                </Label>
+                <CopyContainer
+                  classesStrings={baseUniqueClassesString}
+                  actions={{ hasDetails: true }}
+                  label="Classes únicas da string base:"
+                />
+              </CopyContent>
+              <CopyContent className="__two">
+                <Label className="text-heading-soft text-sm leading-none mb-2">
+                  Classes únicas da string secundária:
+                </Label>
+                <CopyContainer
+                  classesStrings={secondaryUniqueClassesString}
+                  actions={{ hasDetails: true }}
+                  label="Classes únicas da string secundária:"
+                />
+              </CopyContent>
             </div>
           </div>
         </div>
         <div className="py-5">
-          <CopyContent
-            classesStrings={commomClassesString}
-            label="Em comum:"
-            className="__two"
-            actions={{ hasDetails: true }}
-          />
+          <CopyContent className="__two">
+            <Label className="text-heading-soft text-sm leading-none mb-2">Em comum:</Label>
+            <CopyContainer
+              classesStrings={commomClassesString}
+              actions={{ hasDetails: true }}
+              label="Em comum:"
+            />
+          </CopyContent>
         </div>
       </CenteredContainer>
     </main>

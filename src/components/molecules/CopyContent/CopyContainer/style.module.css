@@ -1,0 +1,32 @@
+.copy_content {
+  position: relative;
+  overflow: hidden;
+}
+
+.copy_content[data-valid=false] {
+  cursor: not-allowed;
+}
+
+.copy_content[data-valid=true]:hover :is(.hover_blur, .icon_clipboard_wrapper) {
+  display: unset;
+}
+
+.hover_blur {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(3px);
+  display: none;
+}
+
+.icon_clipboard_wrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  display: none;
+}
+
+.copy_content:active .icon_clipboard_wrapper .clipboard_icon {
+  transform: translate(1px, 1px)
+}

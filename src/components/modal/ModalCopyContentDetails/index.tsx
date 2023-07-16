@@ -8,7 +8,11 @@ import { OverrideConflict } from "@/types/helpers/OverrideConflict"
 import { ButtonIcon } from "@/components/atoms/ButtonIcon"
 import IconX from "@/components/icons/IconX"
 import { Label } from "@/components/atoms"
-import { CopyContent, type CopyContentCustomProps } from "@/components/molecules/CopyContent"
+import { CopyContent } from "@/components/molecules/CopyContent"
+import {
+  CopyContainer,
+  type CopyContentCustomProps,
+} from "@/components/molecules/CopyContent/CopyContainer"
 
 interface ModalCopyContentDetailsProps
   extends OverrideConflict<React.HTMLAttributes<HTMLDivElement>, MotionProps>,
@@ -66,17 +70,12 @@ export const ModalCopyContentDetails = React.forwardRef<
                     </div>
                   </div>
                   <div className="p-6 __two">
-                    <CopyContent
-                      classesStrings={classesStrings}
-                      label={label}
-                    />
-
-                    <h1>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ipsa obcaecati
-                      fugiat, ut modi quibusdam, sint quisquam, reiciendis tempora aspernatur
-                      assumenda labore nulla. Ipsam ratione harum provident necessitatibus, nemo
-                      aliquid.
-                    </h1>
+                    <CopyContent className="__two">
+                      <CopyContainer
+                        classesStrings={classesStrings}
+                        label={label}
+                      />
+                    </CopyContent>
                   </div>
                 </motion.div>
               </AnimatePresence>
