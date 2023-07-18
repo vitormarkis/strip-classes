@@ -4,7 +4,9 @@ import { CenteredContainer } from "@/components/atoms/CenteredContainer"
 import { CopyContent } from "@/components/molecules/CopyContent"
 import { CopyContainer } from "@/components/molecules/CopyContent/CopyContainer"
 import { InputContainer } from "@/components/molecules/InputContainer"
+import { getPrefixesClasses } from "@/utils/getPrefixesClasses"
 import { appendSpecialClassesToObject } from "@/utils/units/appendSpecialClassesToObject"
+import { removeLargeSpaces } from "@/utils/units/removeLargeSpaces"
 import { separateSpecialClasses } from "@/utils/units/separateSpecialClasses"
 import { turnAllValuesToString } from "@/utils/units/turnAllValuesToString"
 import React, { useEffect, useState } from "react"
@@ -68,9 +70,9 @@ export default function StripClassesPage({ ...props }: StripClassesPageProps) {
   useEffect(() => {
     const res1 = separateSpecialClasses(baseClassesString)
     const res2 = appendSpecialClassesToObject(res1)
-    const res3 = turnAllValuesToString(res2.specialClasses)
+    const separatedClasses = turnAllValuesToString(res2.specialClasses)
 
-    console.log({ ...res2, specialClasses: res3 })
+    console.log({ ...res2, specialClasses: separatedClasses })
   }, [baseClassesString])
 
   return (
@@ -95,19 +97,19 @@ export default function StripClassesPage({ ...props }: StripClassesPageProps) {
                 label="Elemento base:"
                 placeholder="Classes do elemento base"
                 value={baseClassesString}
-                onChange={e => setBaseClassesString(e.target.value)}
+                onChange={e => setBaseClassesString(removeLargeSpaces(e.target.value))}
               />
               <InputContainer
                 label="Elemento a ser comparado:"
                 placeholder="Classes do próximo elemento"
                 value={secondaryClassesString}
-                onChange={e => setSecondaryClassesString(e.target.value)}
+                onChange={e => setSecondaryClassesString(removeLargeSpaces(e.target.value))}
               />
             </div>
           </div>
           <div className="block lg:hidden border-b pb-5 mb-5" />
           <div className="hidden lg:block border-r pr-5 mr-5" />
-          <div className="flex-1 space-y-8">
+          <div className="flex-1 space-y-8 overflow-hidden">
             <div>
               <h2 className="text-center text-heading text-4xl font-extralight">Classes Únicas</h2>
               <span className="block text-center text-heading-sub text-sm">
