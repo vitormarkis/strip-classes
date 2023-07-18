@@ -1,6 +1,5 @@
 "use client"
-import React, { CSSProperties, useEffect, useLayoutEffect, useRef, useState } from "react"
-import { twMerge } from "tailwind-merge"
+import React, { CSSProperties, useEffect, useRef, useState } from "react"
 import * as Dialog from "@radix-ui/react-dialog"
 import { motion, AnimatePresence, MotionProps } from "framer-motion"
 import { OverrideConflict } from "@/types/helpers/OverrideConflict"
@@ -43,25 +42,13 @@ export const Content = React.forwardRef<HTMLDivElement, ContentProps>(function C
     let maxChildWidth = 0
 
     for (const ref of childRefs.current) {
-      if (ref) {
-        maxChildWidth = Math.max(ref.offsetWidth, maxChildWidth)
-      }
+      maxChildWidth = Math.max(ref?.offsetWidth || 0, maxChildWidth)
     }
 
     if (maxChildWidth > 0) {
-      console.log({ maxChildWidth })
-      if (parentRef.current) {
-        parentRef.current.style.setProperty("--prefixesWidth", `${maxChildWidth}px`)
-      }
+      parentRef.current?.style.setProperty("--prefixesWidth", `${maxChildWidth}px`)
       setPrefixColumn({ gotChildrenWidths: true, maxWidth: maxChildWidth })
     }
-  }
-
-  const handleClose = () => {
-    // setMaxWidth({
-    //   gotChildrenWidths: false,
-    //   maxWidth: 0,
-    // })
   }
 
   useEffect(() => {
@@ -73,10 +60,9 @@ export const Content = React.forwardRef<HTMLDivElement, ContentProps>(function C
 
   return (
     <Dialog.Content
-      className="fixed inset-0 grid place-items-center px-8"
+      className="z-50 fixed inset-0 grid place-items-center px-8"
       ref={ref}
       onOpenAutoFocus={handleOpen}
-      onCloseAutoFocus={handleClose}
     >
       <Dialog.Overlay
         onClick={() => setIsOpen(false)}
@@ -85,7 +71,7 @@ export const Content = React.forwardRef<HTMLDivElement, ContentProps>(function C
       <AnimatePresence>
         <motion.div
           {...props}
-          className={twMerge(
+          className={cn(
             "z-10 max-w-6xl w-full",
             "bg-background border rounded-lg",
             props.className
@@ -104,8 +90,8 @@ export const Content = React.forwardRef<HTMLDivElement, ContentProps>(function C
               </Dialog.Close>
             </div>
           </div>
-          <div className="p-6 __two space-y-3">
-            <CopyContent className="__two">
+          <div className="__two p-6 space-y-3">
+            <CopyContent>
               <CopyContainer classesStrings={classesStrings} />
             </CopyContent>
             {!!prefixesClasses[0][0].length && (
