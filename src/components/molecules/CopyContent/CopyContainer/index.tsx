@@ -45,7 +45,7 @@ export const CopyContainer = React.forwardRef<HTMLDivElement, CopyContentCustomP
           <div
             data-valid={hasValidClassesString}
             className={cn(
-              "flex-1 border min-h-interactive h-fit font-jetbrains bg-background selection:bg-background-shadow px-4 py-2.5 rounded-interactive",
+              "flex-1 border min-h-interactive h-fit font-jetbrains bg-background selection:bg-background-shadow rounded-interactive",
               "hover:cursor-pointer",
               st.copy_content
             )}
@@ -66,7 +66,7 @@ export const CopyContainer = React.forwardRef<HTMLDivElement, CopyContentCustomP
               >
                 <div
                   className={cn(
-                    "__action h-7 w-7 grid aspect-square border place-items-center rounded-md",
+                    "__neutral h-7 w-7 grid aspect-square border place-items-center rounded-md",
                     "bg-background",
                     st.icon_clipboard_container
                   )}
@@ -78,7 +78,9 @@ export const CopyContainer = React.forwardRef<HTMLDivElement, CopyContentCustomP
                 </div>
               </div>
             </div>
-            <p className="font-jetbrains text-color text-sm">{classesStrings}</p>
+            <div className="px-4 py-2.5 overflow-x-auto">
+              <p className="font-jetbrains text-color text-sm">{classesStrings}</p>
+            </div>
           </div>
           {hasValidActions && (
             <div className="grid place-items-center border h-interactive bg-background rounded-interactive px-2">
