@@ -7,6 +7,21 @@ export interface SpecialClassesArray {
   }
 }
 
+/**
+ * ```tsx
+ * const input = {
+ *   regularClasses: "",
+ *   specialClasses: "hover:bg-background-shadow disabled:bg-background-block",
+ * }
+ * const output = {
+ *   regularClasses: "",
+ *   specialClasses: {
+ *     hover: ["hover:background-shadow"],
+ *     disabled: ["disabled:background-block"],
+ *   }
+ * }
+ * ```
+ */
 export function appendSpecialClassesToObject(
   separatedSpecialClasses: SpecialClassesString
 ): SpecialClassesArray {

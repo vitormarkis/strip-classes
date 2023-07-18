@@ -3,6 +3,16 @@ export interface SpecialClassesString {
   specialClasses: string
 }
 
+/**
+ * ```tsx
+ * const input = "bg-background hover:bg-background-shadow disabled:bg-background-block"
+ *
+ * const output = {
+ *   regularClasses: "bg-background",
+ *   specialClasses: "hover:bg-background-shadow disabled:bg-background-block",
+ * }
+ * ```
+ */
 export function separateSpecialClasses(classes: string): SpecialClassesString {
   let regularClasses = []
   let specialClasses = []
