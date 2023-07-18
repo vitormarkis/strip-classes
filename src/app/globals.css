@@ -61,7 +61,7 @@
     --heading: var(--white-300);
     --heading-sub: var(--black-900);
     --heading-soft: var(--white-400);
-    --ring: var(--black-400);
+    --ring: var(--black-300);
     --symbol: var(--white-600);
   }
 
@@ -86,7 +86,34 @@
     --symbol: var(--black);
   }
 
+  .__shadow {
+    --background: var(--black-300);
+    --background-shadow: var(--white-300);
+    --color: var(--white);
+    --color-soft: var(--white-900);
+    --color-strong: var(--black-300);
+    --heading: var(--black-100);
+    --heading-sub: var(--black-400);
+    --heading-soft: var(--black-500);
+    --ring: var(--white-200);
+    --symbol: var(--white);
+  }
+
   .Special_slate {
+    --special-back-weak: var(--white);
+    --special-back-soft: var(--white-100);
+    --special-back: var(--white-300);
+    --special-back-strong: var(--white-500);
+    --special-back-bold: var(--white-700);
+
+    --special-fore-weak: var(--black-800);
+    --special-fore-soft: var(--black-500);
+    --special-fore: var(--black-200);
+    --special-fore-strong: var(--black-100);
+    --special-fore-bold: var(--black);
+  }
+
+  .dark .Special_slate {
     --special-back-weak: var(--black-800);
     --special-back-soft: var(--black-500);
     --special-back: var(--black-300);

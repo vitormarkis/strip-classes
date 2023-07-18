@@ -7,14 +7,19 @@
   cursor: not-allowed;
 }
 
-.copy_content[data-valid=true]:hover :is(.hover_blur, .icon_clipboard_wrapper) {
+.copy_content[data-valid=true]:hover :is(.hover_blur) {
+  display: unset;
+}
+
+.copy_content[data-valid=true]:hover :is(.icon_clipboard_wrapper) {
   display: unset;
 }
 
 .hover_blur {
   position: absolute;
   inset: 0;
-  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px);
   display: none;
 }
 
@@ -27,6 +32,6 @@
   display: none;
 }
 
-.copy_content:active .icon_clipboard_wrapper .clipboard_icon {
+.copy_content:active .icon_clipboard_container {
   transform: translate(1px, 1px)
 }

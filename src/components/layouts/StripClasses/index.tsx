@@ -122,7 +122,7 @@ export default function StripClassesPage({ ...props }: StripClassesPageProps) {
                 <CopyContainer
                   classesStrings={baseUniqueClassesString}
                   actions={{ hasDetails: true }}
-                  label="Classes únicas da string base:"
+                  // label="Classes únicas da string base:"
                 />
               </CopyContent>
               <CopyContent className="__two">
@@ -132,7 +132,7 @@ export default function StripClassesPage({ ...props }: StripClassesPageProps) {
                 <CopyContainer
                   classesStrings={secondaryUniqueClassesString}
                   actions={{ hasDetails: true }}
-                  label="Classes únicas da string secundária:"
+                  // label="Classes únicas da string secundária:"
                 />
               </CopyContent>
             </div>
@@ -144,7 +144,7 @@ export default function StripClassesPage({ ...props }: StripClassesPageProps) {
             <CopyContainer
               classesStrings={commomClassesString}
               actions={{ hasDetails: true }}
-              label="Em comum:"
+              // label="Em comum:"
             />
           </CopyContent>
         </div>

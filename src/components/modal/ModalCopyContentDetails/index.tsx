@@ -1,5 +1,13 @@
 "use client"
-import React, { useEffect, useState } from "react"
+import React, {
+  CSSProperties,
+  RefObject,
+  createRef,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react"
 import { twMerge } from "tailwind-merge"
 import * as Dialog from "@radix-ui/react-dialog"
 import { createPortal } from "react-dom"
@@ -13,10 +21,16 @@ import {
   CopyContainer,
   type CopyContentCustomProps,
 } from "@/components/molecules/CopyContent/CopyContainer"
+import { separateSpecialClasses } from "@/utils/units/separateSpecialClasses"
+import { appendSpecialClassesToObject } from "@/utils/units/appendSpecialClassesToObject"
+import { turnAllValuesToString } from "@/utils/units/turnAllValuesToString"
+import { getPrefixesClasses } from "@/utils/getPrefixesClasses"
+import clsx from "clsx"
+import { Content } from "@/components/modal/ModalCopyContentDetails/Content"
 
 interface ModalCopyContentDetailsProps
   extends OverrideConflict<React.HTMLAttributes<HTMLDivElement>, MotionProps>,
-    Pick<CopyContentCustomProps, "classesStrings" | "label"> {
+    Pick<CopyContentCustomProps, "classesStrings"> {
   children: React.ReactNode
   title: string
 }
@@ -24,16 +38,14 @@ interface ModalCopyContentDetailsProps
 export const ModalCopyContentDetails = React.forwardRef<
   HTMLDivElement,
   ModalCopyContentDetailsProps
->(function ModalCopyContentDetailsComponent(
-  { classesStrings, label, title, children, ...props },
-  ref
-) {
+>(function ModalCopyContentDetailsComponent({ classesStrings, title, children, ...props }, ref) {
   const [isOpen, setIsOpen] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
 
   useEffect(() => {
     setIsMounted(true)
   }, [])
+
   return (
     <Dialog.Root
       open={isOpen}
@@ -42,44 +54,11 @@ export const ModalCopyContentDetails = React.forwardRef<
       <Dialog.Trigger asChild>{children}</Dialog.Trigger>
       {isMounted
         ? createPortal(
-            <Dialog.Content className="fixed inset-0 grid place-items-center px-8">
-              <Dialog.Overlay
-                onClick={() => setIsOpen(false)}
-                className="absolute inset-0 bg-[#000000]/50"
-              />
-              <AnimatePresence>
-                <motion.div
-                  {...props}
-                  className={twMerge(
-                    "z-10 max-w-6xl w-full",
-                    "bg-background border rounded-lg",
-                    props.className
-                  )}
-                  ref={ref}
-                >
-                  <div className="flex items-center justify-between pl-3.5 pr-2 h-11 border-b">
-                    <div>
-                      <Label className="text-heading text-xl font-extralight">{title}</Label>
-                    </div>
-                    <div>
-                      <Dialog.Close asChild>
-                        <ButtonIcon>
-                          <IconX />
-                        </ButtonIcon>
-                      </Dialog.Close>
-                    </div>
-                  </div>
-                  <div className="p-6 __two">
-                    <CopyContent className="__two">
-                      <CopyContainer
-                        classesStrings={classesStrings}
-                        label={label}
-                      />
-                    </CopyContent>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </Dialog.Content>,
+            <Content
+              classesStrings={classesStrings}
+              title={title}
+              controlModalOpen={[isOpen, setIsOpen]}
+            />,
             document.querySelector("#modal")!
           )
         : null}

@@ -9,18 +9,15 @@ import { ModalCopyContentDetails } from "@/components/modal/ModalCopyContentDeta
 import { ToastCopySuccess } from "@/components/molecules/_toast/CopySuccess"
 import { AnimatePresence } from "framer-motion"
 
-export interface CopyContentCustomProps {
+export type CopyContentCustomProps = {
   classesStrings: string
-  label: string
   actions?: {
     hasDetails?: boolean
   }
-}
+} & React.HTMLAttributes<HTMLDivElement>
 
-interface CopyContainerProps extends React.HTMLAttributes<HTMLDivElement>, CopyContentCustomProps {}
-
-export const CopyContainer = React.forwardRef<HTMLDivElement, CopyContainerProps>(
-  function CopyContainerComponent({ actions = {}, label, classesStrings, ...props }, ref) {
+export const CopyContainer = React.forwardRef<HTMLDivElement, CopyContentCustomProps>(
+  function CopyContainerComponent({ actions = {}, classesStrings, ...props }, ref) {
     const [showSuccessCopy, setShowSuccessCopy] = useState(false)
 
     const hasValidClassesString = !!classesStrings.length
@@ -62,12 +59,23 @@ export const CopyContainer = React.forwardRef<HTMLDivElement, CopyContainerProps
                 />
               )}
             </AnimatePresence>
-            <div className={st.hover_blur}>
-              <div className={st.icon_clipboard_wrapper}>
-                <IconClipboard
-                  size={24}
-                  className={cn(st.clipboard_icon, "text-symbol")}
-                />
+            <div className={cn("hover:bg-background/5", st.hover_blur)}>
+              <div
+                data-valid={hasValidClassesString}
+                className={cn("", st.icon_clipboard_wrapper)}
+              >
+                <div
+                  className={cn(
+                    "__action h-7 w-7 grid aspect-square border place-items-center rounded-md",
+                    "bg-background",
+                    st.icon_clipboard_container
+                  )}
+                >
+                  <IconClipboard
+                    size={18}
+                    className={cn(st.clipboard_icon, "text-symbol")}
+                  />
+                </div>
               </div>
             </div>
             <p className="font-jetbrains text-color text-sm">{classesStrings}</p>
@@ -76,9 +84,8 @@ export const CopyContainer = React.forwardRef<HTMLDivElement, CopyContainerProps
             <div className="grid place-items-center border h-interactive bg-background rounded-interactive px-2">
               {actions.hasDetails && (
                 <ModalCopyContentDetails
-                  title={label}
+                  title={"Gonna Figure Out"}
                   classesStrings={classesStrings}
-                  label={label}
                 >
                   <ButtonIcon>
                     <IconAt

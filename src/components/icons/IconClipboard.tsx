@@ -1,5 +1,5 @@
+import { cn } from "@/lib/utils"
 import React, { CSSProperties } from "react"
-import { twMerge } from "tailwind-merge"
 
 interface IconClipboardProps extends React.SVGAttributes<SVGElement> {
   size?: number
@@ -15,7 +15,7 @@ export default function IconClipboard({
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 256 256"
-      className={twMerge("h-[var(--iconSize)] w-[var(--iconSize)]", className)}
+      className={cn("h-[var(--iconSize)] w-[var(--iconSize)]", className)}
       style={
         {
           ...style,

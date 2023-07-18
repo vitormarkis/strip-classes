@@ -22,6 +22,9 @@ module.exports = {
       },
     },
     colors: {
+      black: "rgba(var(--black) / <alpha-value>)",
+      white: "rgba(var(--white) / <alpha-value>)",
+      transparent: "transparent",
       background: {
         DEFAULT: "rgba(var(--background) / <alpha-value>)",
         shadow: "rgba(var(--background-shadow) / <alpha-value>)",
