@@ -7,7 +7,7 @@
   cursor: not-allowed;
 }
 
-.copy_content[data-valid=true]:hover :is(.hover_blur) {
+.copy_content[data-valid=true]:hover :is(.hover) {
   display: unset;
 }
 
@@ -15,7 +15,7 @@
   display: unset;
 }
 
-.hover_blur {
+.hover {
   position: absolute;
   inset: 0;
   /* -webkit-backdrop-filter: blur(1px);
