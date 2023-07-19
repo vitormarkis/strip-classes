@@ -46,7 +46,7 @@ export const CopyContainer = React.forwardRef<HTMLDivElement, CopyContentCustomP
             data-valid={hasValidClassesString}
             className={cn(
               "flex-1 border min-h-interactive h-fit font-jetbrains bg-background selection:bg-background-shadow rounded-interactive",
-              "hover:cursor-pointer",
+              "hover:cursor-pointer hover:outline-2 hover:outline-accent hover:outline-none hover:outline",
               st.copy_content
             )}
             onClick={handleCopyContent}

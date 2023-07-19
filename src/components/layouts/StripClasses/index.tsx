@@ -109,7 +109,7 @@ export default function StripClassesPage({ ...props }: StripClassesPageProps) {
           </div>
           <div className="block lg:hidden border-b pb-5 mb-5" />
           <div className="hidden lg:block border-r pr-5 mr-5" />
-          <div className="flex-1 space-y-8 overflow-hidden">
+          <div className="flex-1 space-y-8">
             <div>
               <h2 className="text-center text-heading text-4xl font-extralight">Classes Únicas</h2>
               <span className="block text-center text-heading-sub text-sm">
