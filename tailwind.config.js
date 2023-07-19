@@ -45,6 +45,11 @@ module.exports = {
       symbol: {
         DEFAULT: "rgba(var(--symbol) / <alpha-value>)",
       },
+      accent: {
+        DEFAULT: "rgba(var(--accent) / <alpha-value>)",
+        soft: "rgba(var(--accent-soft) / <alpha-value>)",
+        strong: "rgba(var(--accent-strong) / <alpha-value>)",
+      },
       special: {
         back: {
           DEFAULT: "rgba(var(--special-back) / <alpha-value>)",

@@ -37,6 +37,8 @@ export function appendSpecialClassesToObject(
     const hasPrefixAsProperty = prefix in result.specialClasses
 
     if (!hasPrefixAsProperty) {
+      if (!prefix.length || !trimmedSpecialStr.length) continue
+
       result.specialClasses = {
         ...result.specialClasses,
         [prefix]: [trimmedSpecialStr],

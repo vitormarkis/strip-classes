@@ -16,6 +16,9 @@
     --heading-sub: var(--white-900);
     --ring: var(--white-400);
     --symbol: var(--black-600);
+    --accent: var(--electric-violet-600);
+    --accent-soft: var(--electric-violet-500);
+    --accent-strong: var(--electric-violet-700);
   }
 
   .__two {
@@ -63,6 +66,9 @@
     --heading-soft: var(--white-400);
     --ring: var(--black-300);
     --symbol: var(--white-600);
+    --accent: var(--electric-violet-500);
+    --accent-soft: var(--electric-violet-400);
+    --accent-strong: var(--electric-violet-600);
   }
 
   .dark .__two {

@@ -1,5 +1,5 @@
 "use client"
-import React, { CSSProperties, useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import * as Dialog from "@radix-ui/react-dialog"
 import { motion, AnimatePresence, MotionProps } from "framer-motion"
 import { OverrideConflict } from "@/types/helpers/OverrideConflict"
@@ -14,6 +14,7 @@ import {
 import { getPrefixesClasses } from "@/utils/getPrefixesClasses"
 import clsx from "clsx"
 import { cn } from "@/lib/utils"
+import { cssVariables } from "@/utils/units/cssVariables"
 
 interface ContentProps
   extends OverrideConflict<React.HTMLAttributes<HTMLDivElement>, MotionProps>,
@@ -30,6 +31,7 @@ export const Content = React.forwardRef<HTMLDivElement, ContentProps>(function C
 
   const prefixesClassesObject = getPrefixesClasses(classesStrings)
   const prefixesClasses = Object.entries(prefixesClassesObject.specialClasses)
+  const { regularClasses } = prefixesClassesObject
 
   const parentRef = useRef<HTMLDivElement>(null)
   const childRefs = useRef<(HTMLDivElement | null)[]>([])
@@ -94,16 +96,24 @@ export const Content = React.forwardRef<HTMLDivElement, ContentProps>(function C
             <CopyContent>
               <CopyContainer classesStrings={classesStrings} />
             </CopyContent>
-            {!!prefixesClasses[0][0].length && (
+            {!!prefixesClasses.length && (
               <div
                 ref={parentRef}
                 className="space-y-3"
-                style={
-                  {
-                    "--prefixesWidth": `${prefixColumn.maxWidth}px`,
-                  } as CSSProperties
-                }
+                style={cssVariables(["prefixesWidth", prefixColumn.maxWidth, "px"])}
               >
+                <div className="flex gap-3 items-center">
+                  <div
+                    className={clsx({
+                      "w-[var(--prefixesWidth)]": prefixColumn.gotChildrenWidths,
+                    })}
+                  >
+                    <strong className="font-medium text-accent-soft">Regular:</strong>
+                  </div>
+                  <CopyContent className="__two flex-1">
+                    <CopyContainer classesStrings={regularClasses} />
+                  </CopyContent>
+                </div>
                 {prefixesClasses.map(([prefix, classes], index) => (
                   <div
                     key={prefix}

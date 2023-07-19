@@ -1,6 +1,7 @@
 import { Form as S } from "@/components/forms/elements"
 import { InputProps } from "@/components/forms/elements/Input/Input.component"
-import React, { CSSProperties } from "react"
+import { cssVariables } from "@/utils/units/cssVariables"
+import React from "react"
 import { twMerge } from "tailwind-merge"
 
 interface InputComposeProps extends InputProps {
@@ -12,7 +13,7 @@ export const InputCompose = React.forwardRef<HTMLInputElement, InputComposeProps
     return (
       <div
         className="relative [&>*]:z-[var(--z-index)]"
-        style={{ "--z-index:": 50 } as CSSProperties}
+        style={cssVariables(["z-index", 50])}
       >
         <S.Input
           {...props}

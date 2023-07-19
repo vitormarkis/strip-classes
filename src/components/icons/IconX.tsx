@@ -1,4 +1,5 @@
-import React, { CSSProperties } from "react"
+import { cssVariables } from "@/utils/units/cssVariables"
+import React from "react"
 import { twMerge } from "tailwind-merge"
 
 interface IconXProps extends React.SVGAttributes<SVGElement> {
@@ -11,12 +12,7 @@ export default function IconX({ size = 18, style, className, ...props }: IconXPr
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 256 256"
       className={twMerge("h-[var(--iconSize)] w-[var(--iconSize)]", className)}
-      style={
-        {
-          ...style,
-          "--iconSize": `${size}px`,
-        } as CSSProperties
-      }
+      style={cssVariables(["iconSize", size, "px"], style)}
       {...props}
     >
       <rect

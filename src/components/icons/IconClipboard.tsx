@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils"
-import React, { CSSProperties } from "react"
+import { cssVariables } from "@/utils/units/cssVariables"
+import React from "react"
 
 interface IconClipboardProps extends React.SVGAttributes<SVGElement> {
   size?: number
@@ -16,12 +17,7 @@ export default function IconClipboard({
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 256 256"
       className={cn("h-[var(--iconSize)] w-[var(--iconSize)]", className)}
-      style={
-        {
-          ...style,
-          "--iconSize": `${size}px`,
-        } as CSSProperties
-      }
+      style={cssVariables(["iconSize", size, "px"], style)}
       {...props}
     >
       <rect
