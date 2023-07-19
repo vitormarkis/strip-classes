@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 @layer base {
   :root {
     --background: var(--white);
@@ -117,6 +115,34 @@
     --special-fore: var(--black-200);
     --special-fore-strong: var(--black-100);
     --special-fore-bold: var(--black);
+  }
+
+  .Special_plate {
+    --special-back-weak: var(--white-700);
+    --special-back-soft: var(--white-100);
+    --special-back: var(--white);
+    --special-back-strong: var(--white-200);
+    --special-back-bold: var(--white-300);
+
+    --special-fore-weak: var(--black-600);
+    --special-fore-soft: var(--black-300);
+    --special-fore: var(--black-100);
+    --special-fore-strong: var(--black-200);
+    --special-fore-bold: var(--black);
+  }
+
+  .dark .Special_plate {
+    --special-back-weak: var(--black-100);
+    --special-back-soft: var(--black-200);
+    --special-back: var(--black-400);
+    --special-back-strong: var(--black-500);
+    --special-back-bold: var(--black-600);
+
+    --special-fore-weak: var(--white-100);
+    --special-fore-soft: var(--white-200);
+    --special-fore: var(--white-400);
+    --special-fore-strong: var(--white-500);
+    --special-fore-bold: var(--white-600);
   }
 
   .dark .Special_slate {

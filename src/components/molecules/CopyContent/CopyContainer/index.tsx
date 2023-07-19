@@ -59,14 +59,14 @@ export const CopyContainer = React.forwardRef<HTMLDivElement, CopyContentCustomP
                 />
               )}
             </AnimatePresence>
-            <div className={cn("hover:bg-background/5", st.hover_blur)}>
+            <div className={cn("hover:bg-black/10 dark:hover:bg-black/50", st.hover_blur)}>
               <div
                 data-valid={hasValidClassesString}
                 className={cn("", st.icon_clipboard_wrapper)}
               >
                 <div
                   className={cn(
-                    "__neutral h-7 w-7 grid aspect-square border place-items-center rounded-md",
+                    "Special_plate h-7 w-7 grid aspect-square border place-items-center rounded-md",
                     "bg-background",
                     st.icon_clipboard_container
                   )}

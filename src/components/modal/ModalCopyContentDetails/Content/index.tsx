@@ -15,6 +15,7 @@ import { getPrefixesClasses } from "@/utils/getPrefixesClasses"
 import clsx from "clsx"
 import { cn } from "@/lib/utils"
 import { cssVariables } from "@/utils/units/cssVariables"
+import { ScrollArea } from "@/components/ui/scroll-area"
 
 interface ContentProps
   extends OverrideConflict<React.HTMLAttributes<HTMLDivElement>, MotionProps>,
@@ -35,6 +36,7 @@ export const Content = React.forwardRef<HTMLDivElement, ContentProps>(function C
 
   const parentRef = useRef<HTMLDivElement>(null)
   const childRefs = useRef<(HTMLDivElement | null)[]>([])
+  const regularRef = useRef<HTMLDivElement>(null)
   const [prefixColumn, setPrefixColumn] = useState({
     gotChildrenWidths: false,
     maxWidth: 0,
@@ -42,8 +44,9 @@ export const Content = React.forwardRef<HTMLDivElement, ContentProps>(function C
 
   const handleOpen = () => {
     let maxChildWidth = 0
+    const allRefs = [...childRefs.current, regularRef.current]
 
-    for (const ref of childRefs.current) {
+    for (const ref of allRefs) {
       maxChildWidth = Math.max(ref?.offsetWidth || 0, maxChildWidth)
     }
 
@@ -92,7 +95,7 @@ export const Content = React.forwardRef<HTMLDivElement, ContentProps>(function C
               </Dialog.Close>
             </div>
           </div>
-          <div className="__two p-6 space-y-3">
+          <div className="__two p-6 space-y-3 overflow-y-auto max-h-[80vh]">
             <CopyContent>
               <CopyContainer classesStrings={classesStrings} />
             </CopyContent>
@@ -103,13 +106,12 @@ export const Content = React.forwardRef<HTMLDivElement, ContentProps>(function C
                 style={cssVariables(["prefixesWidth", prefixColumn.maxWidth, "px"])}
               >
                 <div className="flex gap-3 items-center">
-                  <div
-                    className={clsx({
-                      "w-[var(--prefixesWidth)]": prefixColumn.gotChildrenWidths,
-                    })}
+                  <PrefixContainer
+                    ref={regularRef}
+                    shouldResize={prefixColumn.gotChildrenWidths}
                   >
-                    <strong className="font-medium text-accent-soft">Regular:</strong>
-                  </div>
+                    <PrefixTag className="text-accent-soft">Regular:</PrefixTag>
+                  </PrefixContainer>
                   <CopyContent className="__two flex-1">
                     <CopyContainer classesStrings={regularClasses} />
                   </CopyContent>
@@ -119,14 +121,14 @@ export const Content = React.forwardRef<HTMLDivElement, ContentProps>(function C
                     key={prefix}
                     className="flex gap-3 items-center"
                   >
-                    <div
+                    <PrefixContainer
+                      shouldResize={prefixColumn.gotChildrenWidths}
                       ref={ref => (childRefs.current[index] = ref)}
-                      className={clsx({
-                        "w-[var(--prefixesWidth)]": prefixColumn.gotChildrenWidths,
-                      })}
                     >
-                      {prefix}
-                    </div>
+                      {prefix.split(":").map(prefixType => (
+                        <PrefixTag>{`${prefixType}:`}</PrefixTag>
+                      ))}
+                    </PrefixContainer>
                     <CopyContent className="__two flex-1">
                       <CopyContainer classesStrings={classes} />
                     </CopyContent>
@@ -140,3 +142,49 @@ export const Content = React.forwardRef<HTMLDivElement, ContentProps>(function C
     </Dialog.Content>
   )
 })
+
+interface PrefixContainerProps extends React.HTMLAttributes<HTMLDivElement> {
+  children: React.ReactNode
+  shouldResize?: boolean
+}
+
+export const PrefixContainer = React.forwardRef<HTMLDivElement, PrefixContainerProps>(
+  function PrefixContainerComponent({ shouldResize, ...props }, ref) {
+    return (
+      <div
+        {...props}
+        className={cn(
+          "flex gap-2 justify-end",
+          {
+            "w-[var(--prefixesWidth)]": shouldResize,
+          },
+          props.className
+        )}
+        ref={ref}
+      >
+        {props.children}
+      </div>
+    )
+  }
+)
+
+interface PrefixTagProps extends React.HTMLAttributes<HTMLDivElement> {
+  children: React.ReactNode
+}
+
+export const PrefixTag = React.forwardRef<HTMLDivElement, PrefixTagProps>(
+  function PrefixTagComponent({ ...props }, ref) {
+    return (
+      <div
+        {...props}
+        ref={ref}
+        className={cn(
+          "__two text-color text-sm leading-none py-1.5 px-3 rounded-lg border bg-background",
+          props.className
+        )}
+      >
+        {props.children}
+      </div>
+    )
+  }
+)
