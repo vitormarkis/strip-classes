@@ -6,22 +6,15 @@ import { OverrideConflict } from "@/types/helpers/OverrideConflict"
 import { ButtonIcon } from "@/components/atoms/ButtonIcon"
 import IconX from "@/components/icons/IconX"
 import { Label } from "@/components/atoms"
-import { CopyContent } from "@/components/molecules/CopyContent"
-import {
-  CopyContainer,
-  type CopyContentCustomProps,
-} from "@/components/molecules/CopyContent/CopyContainer"
 import { getPrefixesClasses } from "@/utils/getPrefixesClasses"
-import clsx from "clsx"
 import { cn } from "@/lib/utils"
 import { cssVariables } from "@/utils/units/cssVariables"
-import { ScrollArea } from "@/components/ui/scroll-area"
+import { CopyContent } from "@/components/molecules/CopyContent"
 
-interface ContentProps
-  extends OverrideConflict<React.HTMLAttributes<HTMLDivElement>, MotionProps>,
-    Pick<CopyContentCustomProps, "classesStrings"> {
+interface ContentProps extends OverrideConflict<React.HTMLAttributes<HTMLDivElement>, MotionProps> {
   controlModalOpen: [boolean, React.Dispatch<React.SetStateAction<boolean>>]
   title: string
+  classesStrings: string
 }
 
 export const Content = React.forwardRef<HTMLDivElement, ContentProps>(function ContentComponent(
@@ -96,9 +89,13 @@ export const Content = React.forwardRef<HTMLDivElement, ContentProps>(function C
             </div>
           </div>
           <div className="__two p-6 space-y-3 overflow-y-auto max-h-[80vh]">
-            <CopyContent>
-              <CopyContainer classesStrings={classesStrings} />
-            </CopyContent>
+            <CopyContent.Root
+              classes={classesStrings}
+              name={title}
+              className="__two flex-1"
+            >
+              <CopyContent.Container />
+            </CopyContent.Root>
             {!!prefixesClasses.length && (
               <div
                 ref={parentRef}
@@ -112,9 +109,13 @@ export const Content = React.forwardRef<HTMLDivElement, ContentProps>(function C
                   >
                     <PrefixTag className="text-accent-soft">Regular:</PrefixTag>
                   </PrefixContainer>
-                  <CopyContent className="__two flex-1">
-                    <CopyContainer classesStrings={regularClasses} />
-                  </CopyContent>
+                  <CopyContent.Root
+                    classes={regularClasses}
+                    name="Regular"
+                    className="__two flex-1"
+                  >
+                    <CopyContent.Container />
+                  </CopyContent.Root>
                 </div>
                 {prefixesClasses.map(([prefix, classes], index) => (
                   <div
@@ -126,12 +127,16 @@ export const Content = React.forwardRef<HTMLDivElement, ContentProps>(function C
                       ref={ref => (childRefs.current[index] = ref)}
                     >
                       {prefix.split(":").map(prefixType => (
-                        <PrefixTag>{`${prefixType}:`}</PrefixTag>
+                        <PrefixTag key={prefixType}>{`${prefixType}:`}</PrefixTag>
                       ))}
                     </PrefixContainer>
-                    <CopyContent className="__two flex-1">
-                      <CopyContainer classesStrings={classes} />
-                    </CopyContent>
+                    <CopyContent.Root
+                      classes={classes}
+                      name={prefix}
+                      className="__two flex-1"
+                    >
+                      <CopyContent.Container />
+                    </CopyContent.Root>
                   </div>
                 ))}
               </div>

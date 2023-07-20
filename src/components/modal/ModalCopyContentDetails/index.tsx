@@ -1,28 +1,21 @@
 "use client"
-import React, { useEffect, useState } from "react"
-import { twMerge } from "tailwind-merge"
+import React, { useEffect, useLayoutEffect, useState } from "react"
 import * as Dialog from "@radix-ui/react-dialog"
 import { createPortal } from "react-dom"
-import { motion, AnimatePresence, MotionProps } from "framer-motion"
+import { MotionProps } from "framer-motion"
 import { OverrideConflict } from "@/types/helpers/OverrideConflict"
-import { ButtonIcon } from "@/components/atoms/ButtonIcon"
-import IconX from "@/components/icons/IconX"
-import { Label } from "@/components/atoms"
-import { CopyContent } from "@/components/molecules/CopyContent"
-import {
-  CopyContainer,
-  type CopyContentCustomProps,
-} from "@/components/molecules/CopyContent/CopyContainer"
-import { separateSpecialClasses } from "@/utils/units/separateSpecialClasses"
-import { appendSpecialClassesToObject } from "@/utils/units/appendSpecialClassesToObject"
-import { turnAllValuesToString } from "@/utils/units/turnAllValuesToString"
-import { getPrefixesClasses } from "@/utils/getPrefixesClasses"
-import clsx from "clsx"
 import { Content } from "@/components/modal/ModalCopyContentDetails/Content"
+import * as Portal from "@radix-ui/react-portal"
 
-interface ModalCopyContentDetailsProps
-  extends OverrideConflict<React.HTMLAttributes<HTMLDivElement>, MotionProps>,
-    Pick<CopyContentCustomProps, "classesStrings"> {
+export interface ModalCopyContentDetailsProps
+  extends OverrideConflict<
+      OverrideConflict<React.HTMLAttributes<HTMLDivElement>, MotionProps>,
+      ModalCopyContentDetailsCustomProps
+    >,
+    ModalCopyContentDetailsCustomProps {}
+
+export type ModalCopyContentDetailsCustomProps = {
+  classesStrings: string
   children: React.ReactNode
   title: string
 }
@@ -34,7 +27,7 @@ export const ModalCopyContentDetails = React.forwardRef<
   const [isOpen, setIsOpen] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setIsMounted(true)
   }, [])
 
@@ -44,16 +37,17 @@ export const ModalCopyContentDetails = React.forwardRef<
       onOpenChange={setIsOpen}
     >
       <Dialog.Trigger asChild>{children}</Dialog.Trigger>
-      {isMounted
-        ? createPortal(
-            <Content
-              classesStrings={classesStrings}
-              title={title}
-              controlModalOpen={[isOpen, setIsOpen]}
-            />,
-            document.querySelector("#modal")!
-          )
-        : null}
+      {isMounted ? (
+        <Portal.Root>
+          <Content
+            {...props}
+            classesStrings={classesStrings}
+            title={title}
+            controlModalOpen={[isOpen, setIsOpen]}
+            ref={ref}
+          />
+        </Portal.Root>
+      ) : null}
     </Dialog.Root>
   )
 })
