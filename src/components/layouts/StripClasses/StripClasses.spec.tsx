@@ -1,7 +1,7 @@
 import StripClassesPage from "@/components/layouts/StripClasses"
 import { render, screen } from "@testing-library/react"
 
-describe("StripClasses", () => {
+describe("Test suite for StripClasses component", () => {
   it("should render properly", () => {
     render(<StripClassesPage />)
 
