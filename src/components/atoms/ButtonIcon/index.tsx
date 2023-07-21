@@ -1,7 +1,7 @@
 import React from "react"
 import { twMerge } from "tailwind-merge"
 
-interface ButtonIconProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonIconProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode
 }
 

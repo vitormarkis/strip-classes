@@ -10,15 +10,14 @@ export const CopyContentButtonWrapper = React.forwardRef<
   CopyContentButtonWrapperProps
 >(function CopyContentButtonWrapperComponent({ ...props }, ref) {
   return (
-    <div>
-      <div
-        {...props}
-        className={cn(
-          "grid place-items-center border h-interactive bg-background rounded-interactive px-2",
-          props.className
-        )}
-        ref={ref}
-      />
+    <div
+      {...props}
+      className={cn(
+        "grid place-items-center border h-interactive bg-background rounded-interactive px-2",
+        props.className
+      )}
+      ref={ref}
+    >
       {props.children}
     </div>
   )
