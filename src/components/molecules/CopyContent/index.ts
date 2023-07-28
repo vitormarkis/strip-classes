@@ -8,11 +8,11 @@ import { CopyContentActionsContainer } from "@/components/molecules/CopyContent/
 
 export const CopyContent = {
   Root: CopyContentRoot,
-  Context: useCopyContentRootContext,
   Title: CopyContentTitle,
   Container: CopyContentClassesContainer,
   ButtonWrapper: CopyContentButtonWrapper,
   Wrapper: CopyContentWrapper,
   ButtonDetails: CopyContentButtonDetails,
   ActionsContainer: CopyContentActionsContainer,
+  Context: useCopyContentRootContext,
 }

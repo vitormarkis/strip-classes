@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
+  .__first {
     --background: var(--white);
     --background-shadow: var(--white-200);
     --color: var(--black-600);
@@ -12,7 +12,7 @@
     --heading: var(--black-300);
     --heading-soft: var(--black-400);
     --heading-sub: var(--white-900);
-    --ring: var(--white-400);
+    --ring: var(--white-200);
     --symbol: var(--black-600);
     --accent: var(--electric-violet-600);
     --accent-soft: var(--electric-violet-500);
@@ -21,7 +21,7 @@
 
   .__two {
     --background: var(--white-100);
-    --background-shadow: var(--white-300);
+    --background-shadow: var(--white-200);
     --color: var(--black-500);
     --color-soft: var(--white-900);
     --color-strong: var(--black-300);
@@ -53,7 +53,7 @@
     --symbol: var(--white);
   }
 
-  .dark {
+  .dark .__first {
     --background: var(--black);
     --background-shadow: var(--black-200);
     --color: var(--white-600);

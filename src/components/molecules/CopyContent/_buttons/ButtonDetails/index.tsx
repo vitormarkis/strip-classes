@@ -1,5 +1,5 @@
 import { ButtonIcon, ButtonIconProps } from "@/components/atoms/ButtonIcon"
-import IconAt from "@/components/icons/IconAt"
+import { IconAt } from "@/components/icons"
 import { ModalCopyContentDetails } from "@/components/modal/ModalCopyContentDetails"
 import { CopyContent } from "@/components/molecules/CopyContent"
 import React, { ReactNode } from "react"

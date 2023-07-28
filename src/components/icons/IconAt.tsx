@@ -1,19 +1,19 @@
-import { cssVariables } from "@/utils/units/cssVariables"
 import React from "react"
-import { twMerge } from "tailwind-merge"
+import { IconProps } from "@/types/icon-props"
+import { createIconAttributes } from "@/components/icons/createIconAttributes"
 
-interface IconAtProps extends React.SVGAttributes<SVGElement> {
-  size?: number
-}
+export const IconAt = React.forwardRef<React.ElementRef<"svg">, IconProps>(function IconAtComponent(
+  props,
+  ref
+) {
+  const attributes = createIconAttributes(props)
 
-export default function IconAt({ size = 18, style, className, ...props }: IconAtProps) {
   return (
     <svg
+      {...attributes}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 256 256"
-      className={twMerge("h-[var(--iconSize)] w-[var(--iconSize)]", className)}
-      style={cssVariables(["iconSize", size, "px"], style)}
-      {...props}
+      ref={ref}
     >
       <rect
         width={256}
@@ -40,4 +40,4 @@ export default function IconAt({ size = 18, style, className, ...props }: IconAt
       />
     </svg>
   )
-}
+})

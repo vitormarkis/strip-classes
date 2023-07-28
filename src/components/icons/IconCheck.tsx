@@ -1,33 +1,32 @@
-import { cn } from "@/lib/utils"
-import { cssVariables } from "@/utils/units/cssVariables"
 import React from "react"
+import { IconProps } from "@/types/icon-props"
+import { createIconAttributes } from "@/components/icons/createIconAttributes"
 
-interface IconCheckProps extends React.SVGAttributes<SVGElement> {
-  size?: number
-}
+export const IconCheck = React.forwardRef<React.ElementRef<"svg">, IconProps>(
+  function IconCheckComponent(props, ref) {
+    const attributes = createIconAttributes(props)
 
-export default function IconCheck({ size = 18, style, className, ...props }: IconCheckProps) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 256 256"
-      className={cn("h-[var(--iconSize)] w-[var(--iconSize)]", className)}
-      style={cssVariables(["iconSize", size, "px"], style)}
-      {...props}
-    >
-      <rect
-        width={256}
-        height={256}
-        fill="none"
-      />
-      <polyline
-        points="40 144 96 200 224 72"
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={24}
-      />
-    </svg>
-  )
-}
+    return (
+      <svg
+        {...attributes}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 256 256"
+        ref={ref}
+      >
+        <rect
+          width={256}
+          height={256}
+          fill="none"
+        />
+        <polyline
+          points="40 144 96 200 224 72"
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={24}
+        />
+      </svg>
+    )
+  }
+)
