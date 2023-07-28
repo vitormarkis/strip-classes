@@ -5,6 +5,7 @@ import { AnimatePresence } from "framer-motion"
 import { MotionSwitchStatic } from "@/components/motion/switch-static/MotionSwitchStatic"
 import { IconProps } from "@/types/icon-props"
 import { tv, VariantProps } from "tailwind-variants"
+import { palette } from "@/styles/palettes"
 
 const classStyles = tv({
   base: "hover:cursor-default relative transition-all duration-100",
@@ -23,11 +24,13 @@ const classStyles = tv({
       large: "rounded-lg",
       full: "rounded-full",
     },
+    palette,
   },
   defaultVariants: {
     size: "regular",
     styleType: "hover",
     rounded: "full",
+    palette: "first",
   },
 })
 
@@ -41,7 +44,7 @@ export const ButtonToggleThemeMode = React.forwardRef<
   React.ElementRef<"button">,
   ButtonToggleThemeModeProps
 >(function ButtonToggleThemeModeComponent(
-  { rounded, styleType, className, size, iconProps, icon, ...props },
+  { palette, rounded, styleType, className, size, iconProps, icon, ...props },
   ref
 ) {
   const Icon = icon
@@ -56,7 +59,7 @@ export const ButtonToggleThemeMode = React.forwardRef<
   return (
     <button
       {...props}
-      className={classStyles({ rounded, className, size, styleType })}
+      className={classStyles({ palette, rounded, className, size, styleType })}
       ref={ref}
     >
       <AnimatePresence>

@@ -31,7 +31,8 @@ export const Header = React.forwardRef<React.ElementRef<"header">, HeaderProps>(
               trigger={
                 <ButtonToggleThemeMode
                   icon={isDarkMode ? IconMoon : IconSun}
-                  className="__first text-symbol"
+                  palette="first"
+                  className="text-symbol"
                 />
               }
             >
